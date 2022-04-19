@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="15140e7d-712d-46c5-aa15-6f339f146537" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="demogithunbFlow" doc:id="3aed3531-d71c-4aad-9d95-40a6220e031a" >
+		<http:listener doc:name="Listener" doc:id="16fe8072-47bb-40db-bb13-9eb2a6e035c6" config-ref="HTTP_Listener_config" path="/demoGit"/>
+		<logger level="INFO" doc:name="Logger" doc:id="628d28d8-9d4a-4f01-bdc7-a0249c6cd6e1" message="#[payload]"/>
+	</flow>
+</mule>
